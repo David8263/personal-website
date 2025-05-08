@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Projects</title>
+		<link rel="stylesheet" href="../css/navbar.css">
+		<link rel="stylesheet" href="../css/footer.css">
+		<link rel="stylesheet" href="../css/grid.css">
+		<link rel="stylesheet" href="../css/flexbox.css">
+		<style>
+			.large-box {
+				padding: 1em;
+				width: auto;
+				min-width: 75%;
+				min-height: 50em;
+			}
+			.navbar li {
+				color: white;
+			}
+		</style>
+	</head>
+	<body">
+		<ul class="navbar">
+			<li><a href="homepage.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li><a href="javascript:void(0)" class="active">Projects</a></li>
+			<li style="float: right"><a href="about-this-page.html">About This Page</a></li>
+		</ul>
+		<div class="flexbox-container">
+			<div class="grid-container">
+				<div class="center-box">
+					<ul style="margin-top: 2em; width: 50%;"class="navbar">
+						<li onclick="projectTypeClicked('python', 'a-python')"><a id="a-python">Python</a></li>
+						<li onclick="projectTypeClicked('javascript', 'a-javascript')"><a id="a-javascript">Javascript</a></li>
+						<li onclick="projectTypeClicked('java', 'a-java')"><a id="a-java">Java</a></li>
+						<li onclick="projectTypeClicked('c', 'a-c')"><a id="a-c">C</a></li>
+						<li onclick="projectTypeClicked('other', 'a-other')"><a id="a-other">Other</a></li>
+					</ul>
+				</div>
+				<div class="center-box">
+					<div id="blank" style="display: block" class="grid-item large-box">
+						
+					</div>
+					<div id="python" style="display: none;" class="grid-item large-box">
+						<ul>
+							<li><a href="javascript:void(0)">Automatic Download Sorter (not started)</a></li>
+						</ul>
+					</div>
+
+					<div id="javascript" style="display: none;" class="grid-item large-box">
+						<ul>
+							<li><a href="javascript:void(0)">None yet, come back soon!</a></li>
+						</ul>
+					</div>
+
+					<div id="java" style="display: none;" class="grid-item large-box">
+						<ul>
+							<li><a href="javascript:void(0)">None yet, come back soon!</a></li>
+						</ul>
+					</div>
+
+					<div id="c" style="display: none;" class="grid-item large-box">
+						<ul>
+							<li><a href="javascript:void(0)">None yet, come back soon!</a></li>
+						</ul>
+					</div>
+
+					<div id="other" style="display: none;" class="grid-item large-box">
+						<ul>
+							<li><a href="javascript:void(0)">None yet, come back soon!</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<p>David Miller</p>
+				<p>Computer Science and Cybersecurity</p>
+				<p>millerd51@nku.edu</p>
+			</div>
+		</div>
+
+		<script>
+			let previousDiv = null;
+			let previousA = null;
+			function toggleDiv(divId) {
+			const blank = document.getElementById('blank');
+			const div = document.getElementById(divId);
+				if (previousDiv && previousDiv !== div) {
+					previousDiv.style.display = 'none';
+				}
+
+				if (div.style.display === "none") {
+					blank.style.display = "none";
+					div.style.display = "block";
+					previousDiv = div;
+				} else {
+					div.style.display = "none";
+					blank.style.display = "block";
+					previousDiv = null;
+				}
+			}
+			function updateActive(aId) {
+				const a = document.getElementById(aId);
+				if (previousA && previousA != a) {
+					previousA.classList.remove('active');
+				}
+				a.classList.add('active');
+				previousA = a;
+				
+			}
+			
+			function projectTypeClicked(divId, aId) {
+				toggleDiv(divId);
+				if(previousA != document.getElementById(aId)) {
+					updateActive(aId);
+				} else {
+					const a = document.getElementById(aId);
+					a.classList.remove('active');
+					previousA = null;
+				}
+			}
+		</script>
+	</body>
+</html>

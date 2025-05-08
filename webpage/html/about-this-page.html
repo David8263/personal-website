@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> David Miller Homepage</title>
+		<link rel="stylesheet" href="../css/navbar.css">
+		<link rel="stylesheet" href="../css/footer.css">
+		<link rel="stylesheet" href="../css/grid.css">
+		<link rel="stylesheet" href="../css/flexbox.css">
+	</head>
+	<body>
+		<ul class="navbar">
+			<li><a href="homepage.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li><a href="projects.html">Projects</a></li>
+			<li style="float: right"><a href="javascript:void(0)" class="active">About This Page</a></li>
+		</ul>
+		<br>
+
+		<div class="flexbox-container">
+			<div class="grid-container">
+				<div class="center-box">
+					<img src="../images/myPhoto.jpg" height="712px" width="1064px" alt="Photo of Me">
+				</div>
+				<div class="center-box">
+					David miller - Computer Science and Cybersecurity Major
+				</div>
+				<div class="grid-item center-box">
+				<p>
+					Hello! Welcome to my webpage! I started this project for INF 286, Introduction to Web Development, at Fort Caswell (Where this photo was taken!)
+                    in early March, 2025. Everything on this page was coded by me, without the use of a templet. For more complex issues and bug fixing, AI was consulted,
+                    but code was tested and understood before implemented. Essentially, I used AI to get me back on my feet again whenever I got lost as to what to try next
+                    to fix the silliest of problems. Whatever edition of the webpage this is, it probably looks nice, but <a href="homepage.html">here</a> is a link
+                    to the first edition of the site I released, which is what I submitted for the final! If you are interested in the development over a period of time, you
+                    can check out the archive list <a href="javascript:void(0)">here</a>, once there are multiple editions of the site.
+				</p>
+				</div>
+                <div class="grid-item">
+                    <p>
+                        Like I said above, this webpage was originally created by me during INF 286. This means that the first edition of this webpage uses very little JavaScript!
+                        on the <a href="projects.html">projects</a> page, I used JavaScript to create the navigation bar for the box containing different projects. I didn't know
+                        much at the time, but it allowed me to get some early experience transferring some of my Java and Python knowledge while also trying to recall what I could 
+                        from all the way back in high school.
+                    </p>
+                </div>
+                <div style="grid-row: 4/ span 3; grid-column-start: 2"class="grid-item">
+                    <pre>
+                        &lt;script>
+                            let previousDiv = null;
+                            let previousA = null;
+                            function toggleDiv(divId) {
+                            const blank = document.getElementById('blank');
+                            const div = document.getElementById(divId);
+                                if (previousDiv && previousDiv !== div) {
+                                    previousDiv.style.display = 'none';
+                                }
+                
+                                if (div.style.display === "none") {
+                                    blank.style.display = "none";
+                                    div.style.display = "block";
+                                    previousDiv = div;
+                                } else {
+                                    div.style.display = "none";
+                                    blank.style.display = "block";
+                                    previousDiv = null;
+                                }
+                            }
+                            function updateActive(aId) {
+                                const a = document.getElementById(aId);
+                                if (previousA && previousA != a) {
+                                    previousA.classList.remove('active');
+                                }
+                                a.classList.add('active');
+                                previousA = a;
+                                
+                            }
+                            
+                            function projectTypeClicked(divId, aId) {
+                                toggleDiv(divId);
+                                if(previousA != document.getElementById(aId)) {
+                                    updateActive(aId);
+                                } else {
+                                    const a = document.getElementById(aId);
+                                    a.classList.remove('active');
+                                    previousA = null;
+                                }
+                            }
+                        &lt;/script>
+                    </pre>
+                </div>
+                <div class="grid-item">
+                    <p>
+                        As you can see on the right, A simple script tag is used to do two things, toggle which div is display: block (which on the
+                        <a href="projects.html">projects</a> page is the big yellow box) and which hyperlink has the active class. It accomplishes this 
+                        by using global variables to store parameters from previous method calls and then compares the actively called values to previous
+                        ones.
+                    </p>
+                </div>
+                <div class="grid-item">
+                    <p>
+                        This JavaScript actually caused me a lot of issues, though. I didn't quite understand the document.getElementById() that was used,
+                        but I somewhat understood the difference between passing an object and the value that I want to compare (from my previous Java Knowledge)
+                        so I knew that it needed to be there. I was having logic issues that seemingly had no basis to exit. This caused a really funny issue 
+                        where, at first, I could go toggle on all of the project section highlights... but they couldn't turn off. Then I changed some code around 
+                        and I could toggle each one on and off, but it didn't automatically disable the previous active highlight. Finally I came accross a solution... 
+                        or so I thought. It properly toggled everything on and off except for one case, when you tried to toggle on one element, turn it off, and then
+                        turn that same one back on again. Thankfully though, I recognized quickly that this was because I forgot to update a variable, so it was a quick 
+                        fix, but the strange logic that was happening was still a really cool pattern
+                    </p>
+                </div>
+                <div class="grid-item center-box">
+                    <p>
+                        Do you like all of the boxes? I created the system myself, but for the other part of my INF 286 final! It is a simple nested grid within a
+                        flexbox. There are two rows in the flexbox, one for content and one for the footer, and then the grid itself has two columns and as many
+                        rows as I need, depending on the number of divs I use. This allows me to neatly split of and display all of my content, and I'm really proud 
+                        of the work I did! This is because, after my initial set up, it felt a lot like coding with bootstrap... except I created the library! Doing
+                        this really heightened my understanding of css and frameworks, and I think it would be a great idea if you want to learn more about how bootstrap 
+                        works too!
+                    </p>
+                </div>
+			</div>
+
+			<div class="center-box footer">
+				<p>David Miller</p>
+				<p>Computer Science and Cybersecurity</p>
+				<p>millerd51@nku.edu</p>
+			</div>
+		</div>
+		
+	</body>
+</html>
