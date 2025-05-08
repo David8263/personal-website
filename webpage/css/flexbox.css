@@ -1,0 +1,8 @@
+.flexbox-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.flexbox-container > .grid-container {
+    padding-bottom: 15%;
+}

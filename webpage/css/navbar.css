@@ -1,0 +1,28 @@
+/* Creates a navbar with features including hovering effects, external link differentiation, and active page highlight */
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; /* Black background to easily distinguish the borders of the navigation bar */
+}
+.navbar li {
+    float: left; /* Causes all items by default to align to the lefthand side */
+}
+.navbar li a { /* Controls the basic elements of all navbar text */
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navbar li a:hover:not(.active) { /* adds hovering effects mentioned above */
+    background-color: #111;
+}
+.active {
+    background-color: #e0bb15; /* Displays the active page with a green color. Changing this value changes the 'highlight color' of the active page list item */
+}
+.navbar li a i { /* Adds a little bit of space between the font awesome icons and the text to accompany it */
+    margin-right: 0.2em;
+    margin-left: 0.2em;
+}

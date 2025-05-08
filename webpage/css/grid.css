@@ -1,0 +1,22 @@
+h1 {
+    text-align: center;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-left: 5em;
+    margin-right: 5em;
+}
+.center-box {
+    margin-left: 7em;
+    margin-right: 7em;
+    grid-column: 1 / span 2;
+    display: grid;
+    place-items: center;
+}
+.grid-item {
+    background: #ffde4a; /* color base on the color found in Tracey's code */
+    outline-style: solid;
+    padding: 0.5em;
+}
